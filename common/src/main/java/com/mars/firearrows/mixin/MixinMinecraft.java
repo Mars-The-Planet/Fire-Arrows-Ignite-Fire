@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//this mixin was written by Ray857
+// Ray857 wrote this mixin
 @Mixin(AbstractArrow.class)
 public abstract class MixinMinecraft extends Projectile {
     MixinMinecraft(EntityType<? extends Projectile> entityType, Level level) {
@@ -58,7 +58,7 @@ public abstract class MixinMinecraft extends Projectile {
     public void startFire(BlockPos firePosition, Level level) {
         Block blockInLevel = level.getBlockState(firePosition).getBlock();
         for (int i = 0; i < FireArrowsConfig.blocksBrokenByFireArrows.size(); i++) {
-            if(blockInLevel.equals(BuiltInRegistries.BLOCK.get(ResourceLocation.parse(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
+            if(blockInLevel.equals(BuiltInRegistries.BLOCK.get(new ResourceLocation(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
                 level.destroyBlock(firePosition, true);
                 level.setBlock(firePosition, BaseFireBlock.getState(level, firePosition), 11);
             }
