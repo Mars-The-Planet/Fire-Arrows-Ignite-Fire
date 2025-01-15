@@ -58,7 +58,7 @@ public abstract class MixinMinecraft extends Projectile {
     public void startFire(BlockPos firePosition, Level level) {
         Block blockInLevel = level.getBlockState(firePosition).getBlock();
         for (int i = 0; i < FireArrowsConfig.blocksBrokenByFireArrows.size(); i++) {
-            if(blockInLevel.equals(BuiltInRegistries.BLOCK.get(ResourceLocation.parse(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
+            if(blockInLevel.equals(BuiltInRegistries.BLOCK.getValue(ResourceLocation.parse(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
                 level.destroyBlock(firePosition, true);
                 level.setBlock(firePosition, BaseFireBlock.getState(level, firePosition), 11);
             }
