@@ -29,7 +29,7 @@ public abstract class MixinMinecraft extends Projectile{
     public void onHitBlock(BlockHitResult BHR, CallbackInfo ci) {
         if(BHR.getType() == HitResult.Type.MISS) {return;}
         if(!this.isOnFire()) {return;}
-        Level level = this.level();
+        Level level = this.level;
         if(level instanceof ServerLevel) {
             switch(BHR.getDirection()) {
                 case UP:
