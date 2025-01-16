@@ -2,7 +2,7 @@ package com.mars.firearrows.mixin;
 
 import com.mars.firearrows.FireArrowsConfig;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
@@ -29,7 +29,7 @@ public abstract class MixinMinecraft extends Projectile{
     public void onHitBlock(BlockHitResult BHR, CallbackInfo ci) {
         if(BHR.getType() == HitResult.Type.MISS) {return;}
         if(!this.isOnFire()) {return;}
-        Level level = this.level();
+        Level level = this.level;
         if(level instanceof ServerLevel) {
             switch(BHR.getDirection()) {
                 case UP:
@@ -57,7 +57,7 @@ public abstract class MixinMinecraft extends Projectile{
     public void startFire(BlockPos firePosition, Level level) {
         Block blockInLevel = level.getBlockState(firePosition).getBlock();
         for (int i = 0; i < FireArrowsConfig.blocksBrokenByFireArrows.size(); i++) {
-            if(blockInLevel.equals(BuiltInRegistries.BLOCK.get(new ResourceLocation(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
+            if(blockInLevel.equals(Registry.BLOCK.get(new ResourceLocation(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
                 level.destroyBlock(firePosition, true);
                 level.setBlock(firePosition, BaseFireBlock.getState(level, firePosition), 11);
             }
