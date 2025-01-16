@@ -6,6 +6,6 @@ public class FireArrows implements ModInitializer {
 
     @Override
     public void onInitialize() {
-
+        CommonClass.init();
     }
 }
