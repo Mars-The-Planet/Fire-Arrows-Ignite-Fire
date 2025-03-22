@@ -7,7 +7,7 @@
 </strong></p></center>
 <center>
 <p style="text-align: center;">With this mod, you can shoot fire arrows that start burning blocks they hit.<br /><strong>How does it work?<br /></strong>When an arrow on fire hits any block, it will try to set it on fire.</p>
-<p style="text-align: center;"><img src="https://i.imgur.com/VgiZ8EZ.gif" width="508" height="508" /></p>
+<p style="text-align: center;"><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGtqcnp6NHJ6MjRod3F5cXVhNzJtdzZ5aXFieHZwZG45NWp6NTg3aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xlpZHAXTNTL4IQZgjS/giphy.gif" width="508" height="508" /></p>
 </center>
 <details>
 <summary><strong>Configuration</strong></summary>
