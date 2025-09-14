@@ -19,10 +19,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//Ray857 wrote this mixin
+//this mixin was written by Ray857, lightly tweaked by Mars
 @Mixin(AbstractArrow.class)
-public abstract class MixinMinecraft extends Projectile {
-    MixinMinecraft(EntityType<? extends Projectile> entityType, Level level) {
+public abstract class AbstractArrowMixin extends Projectile {
+    AbstractArrowMixin(EntityType<? extends Projectile> entityType, Level level) {
         super(entityType, level);
     }
 
