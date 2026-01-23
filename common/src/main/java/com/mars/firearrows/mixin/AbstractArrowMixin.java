@@ -4,11 +4,11 @@ import com.mars.firearrows.FireArrowsConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Projectile;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseFireBlock;
 import net.minecraft.world.level.block.Block;
@@ -58,7 +58,7 @@ public abstract class AbstractArrowMixin extends Projectile {
     public void startFire(BlockPos firePosition, Level level) {
         Block blockInLevel = level.getBlockState(firePosition).getBlock();
         for (int i = 0; i < FireArrowsConfig.blocksBrokenByFireArrows.size(); i++) {
-            if(blockInLevel.equals(BuiltInRegistries.BLOCK.getValue(ResourceLocation.parse(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
+            if(blockInLevel.equals(BuiltInRegistries.BLOCK.getValue(Identifier.parse(FireArrowsConfig.blocksBrokenByFireArrows.get(i))))){
                 level.destroyBlock(firePosition, true);
                 level.setBlock(firePosition, BaseFireBlock.getState(level, firePosition), 11);
             }
